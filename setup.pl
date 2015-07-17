@@ -32,6 +32,8 @@ sub main
 
     # ドットファイルコピー
     &copy_dotfiles($home);
+    # colorschmeをインストール
+    &install_colorscheme($home);
     # NeoBundleインストール
     &install_NeoBundle($home);
 
@@ -54,6 +56,27 @@ sub copy_dotfiles
     exec_cmd("cp -r $file_root/.vim $home");
 }
 
+#
+# vimのカラースキームをインストールする
+#
+sub install_colorscheme
+{
+    my ($home) = shift;
+
+    info(">>>> start install colorschme");
+
+    if (-f "$home/.vim/colors/molokai.vim") {
+        info("molokai is alerady installed.");
+        return 0;
+    }
+
+    info("now installing colorscheme");
+    exec_cmd("mkdir -p $home/.vim/colors");
+    # molokai
+    exec_cmd("git clone clone https://github.com/tomasr/molokai $home/.vim/colors/molokai.vim");
+    return 1;
+}
+
 
 #
 # vimのNeoBundleプラグインをインストールする
@@ -66,13 +89,15 @@ sub install_NeoBundle
 
     if (-d "$home/.vim/bundle") {
         info("NeoBundle is already installed.");
-    } else {
-        info("now installing NeoBundle");
-        exec_cmd("mkdir -p $home/.vim/bundle");
-        exec_cmd("git clone git://github.com/Shougo/neobundle.vim $home/.vim/bundle/neobundle.vim");
-        # gitでコミット実行時、利用エディタをvimに設定
-        exec_cmd("git config --global core.editor "vim"");
+        return 0;
     }
+
+    info("now installing NeoBundle");
+    exec_cmd("mkdir -p $home/.vim/bundle");
+    exec_cmd("git clone git://github.com/Shougo/neobundle.vim $home/.vim/bundle/neobundle.vim");
+    # gitでコミット実行時、利用エディタをvimに設定
+    exec_cmd("git config --global core.editor \"vim\"");
+    return 1;
 }
 
 #
