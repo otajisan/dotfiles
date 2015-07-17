@@ -119,7 +119,7 @@ sub exec_cmd
 sub print_usage
 {
     error("*********** Usage ***********");
-    error("perl setup.pl /home/mtaji");
+    error("perl setup.pl /home/hoge");
 }
 
 #
