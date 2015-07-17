@@ -70,6 +70,8 @@ sub install_NeoBundle
         info("now installing NeoBundle");
         exec_cmd("mkdir -p $home/.vim/bundle");
         exec_cmd("git clone git://github.com/Shougo/neobundle.vim $home/.vim/bundle/neobundle.vim");
+        # gitでコミット実行時、利用エディタをvimに設定
+        exec_cmd("git config --global core.editor "vim"");
     }
 }
 

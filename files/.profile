@@ -2,7 +2,16 @@ if [ -f ~/.profile.local ]; then
     . ~/.profile.local
 fi
 
-alias ls='ls -G'
+# Mac / Linuxでlsの色付けを振り分け
+case "${OSTYPE}" in
+darwin*)
+    alias ls='ls -G'
+    ;;
+linux*)
+    alias ls='ls --color'
+    ;;
+esac
+
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -la'
