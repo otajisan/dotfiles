@@ -16,6 +16,9 @@ alias l='ls'
 alias ll='ls -l'
 alias la='ls -la'
 
+# vimfiler
+alias vf='vim +VimFiler'
+
 vprofile(){
         vim ~/.profile
 }
