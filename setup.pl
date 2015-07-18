@@ -74,7 +74,9 @@ sub install_colorscheme
     info("now installing colorscheme");
     exec_cmd("mkdir -p $home/.vim/colors");
     # molokai
-    exec_cmd("git clone https://github.com/tomasr/molokai $home/.vim/colors/molokai.vim");
+    exec_cmd(" git clone https://github.com/tomasr/molokai");
+    exec_cmd("mv molokai/colors/molokai.vim ~/.vim/colors/");
+    exec_cmd("rm -fR molokai");
     return 1;
 }
 
