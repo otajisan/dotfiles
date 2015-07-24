@@ -1,4 +1,4 @@
-PS1='\033[36m[\u@\H:$PWD] \033[35m\t\n\033[35m$ \033[0m';
+PS1="\033[36m[\u@\H:$PWD] \033[35m\$(date +'%Y/%m/%d') \t\n\033[35m$ \033[0m";
 
 if [ -f ~/.profile ]; then
     . ~/.profile
