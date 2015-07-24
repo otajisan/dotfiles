@@ -1,3 +1,4 @@
+# 環境ごとの設定があれば読み込み
 if [ -f ~/.profile.local ]; then
     . ~/.profile.local
 fi
@@ -20,19 +21,19 @@ alias la='ls -la'
 alias vf='vim +VimFiler'
 
 vprofile(){
-        vim ~/.profile
+    vim ~/.profile
 }
 
 sprofile(){
-        source ~/.profile
+    source ~/.profile
 }
 
 scrd(){
-        screen -r -X quit
+    screen -r -X quit
 }
 
 psck(){
-        ps aux | grep "SCREEN"
-        ps aux | grep "screen"
+    ps aux | grep "SCREEN"
+    ps aux | grep "screen"
 }
 
