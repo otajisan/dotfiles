@@ -123,7 +123,7 @@ sub setup_git
 
     # config files
     exec_cmd("cp $file_root/git-completion.bash $home");
-    exec_cmd("cp $file_root/git-prompt.bash $home");
+    exec_cmd("cp $file_root/git-prompt.sh $home");
 
     # setting
     exec_cmd("git config --global user.name otajisan");
