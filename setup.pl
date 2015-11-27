@@ -36,6 +36,8 @@ sub main
     &install_colorscheme($home);
     # NeoBundleインストール
     &install_NeoBundle($home);
+    # gitの設定
+    &setup_git($home);
 
     success();
 
@@ -75,7 +77,7 @@ sub install_colorscheme
     info("now installing colorscheme");
     exec_cmd("mkdir -p $home/.vim/colors");
     # molokai
-    exec_cmd(" git clone https://github.com/tomasr/molokai");
+    exec_cmd("git clone https://github.com/tomasr/molokai");
     exec_cmd("mv molokai/colors/molokai.vim ~/.vim/colors/");
     exec_cmd("rm -fR molokai");
     return 1;
@@ -101,6 +103,43 @@ sub install_NeoBundle
     exec_cmd("git clone git://github.com/Shougo/neobundle.vim $home/.vim/bundle/neobundle.vim");
     # gitでコミット実行時、利用エディタをvimに設定
     exec_cmd("git config --global core.editor \"vim\"");
+    return 1;
+}
+
+#
+# gitの設定
+#
+sub setup_git
+{
+    my ($home) = shift;
+    my $file_root = './files';
+
+    info(">>>> start setup git");
+
+    if (-f "$home/git-completion.bash" && -f "$home/git-prompt.sh") {
+        info("git setup is already done.");
+        return 0;
+    }
+
+    # config files
+    exec_cmd("cp $file_root/git-completion.bash $home");
+    exec_cmd("cp $file_root/git-prompt.bash $home");
+
+    # setting
+    exec_cmd("git config --global user.name otajisan");
+    exec_cmd("git config --global color.ui auto");
+
+    # alias
+    exec_cmd("git config --global alias.co checkout");
+    exec_cmd("git config --global alias.ci commit");
+    exec_cmd("git config --global alias.st status");
+    exec_cmd("git config --global alias.br branch");
+    exec_cmd("git config --global alias.hist 'log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short'");
+
+    # my git ignore
+    exec_cmd("cp $file_root/.gitignore $home");
+    exec_cmd("git config --global core.excludesfile ~/.gitignore");
+
     return 1;
 }
 
