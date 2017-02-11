@@ -20,6 +20,12 @@ NeoBundle 'Shougo/vimfiler'
 nnoremap <silent><C-f> :VimFiler<CR>
 "syntastic
 NeoBundle 'scrooloose/syntastic'
+let g:syntastic_python_checkers = ['pyflakes']
+
+NeoBundle "thinca/vim-quickrun"
+NeoBundle "Shougo/vimproc"
+NeoBundle "osyo-manga/shabadou.vim"
+
 "NERDTree(Ctrl + t)
 NeoBundle 'scrooloose/nerdtree'
 nnoremap <silent><C-t> :NERDTreeToggle<CR>
@@ -30,9 +36,9 @@ NeoBundle 'mattn/emmet-vim'
 "にゃんもどき
 NeoBundle 'drillbits/nyan-modoki.vim'
 set laststatus=2
-"set statusline=%F%m%r%h%w[%{&ff}]%=%{g:NyanModoki()}(%l,%c)[%P]
-"let g:nyan_modoki_select_cat_face_number = 2
-"let g:nayn_modoki_animation_enabled= 1
+set statusline=%F%m%r%h%w[%{&ff}]%=%{g:NyanModoki()}(%l,%c)[%P]
+let g:nyan_modoki_select_cat_face_number = 2
+let g:nayn_modoki_animation_enabled= 1
 
 call neobundle#end()
 filetype plugin indent on
