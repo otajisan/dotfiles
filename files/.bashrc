@@ -2,12 +2,12 @@ if [ -f ~/.profile ]; then
     . ~/.profile
 fi
 
-if [ -f ~/git-completion.bash ]; then
-    source ~/git-completion.bash
-fi
-
 if [ -f ~/git-prompt.sh ]; then
     source ~/git-prompt.sh
+fi
+
+if [ -f ~/git-completion.bash ]; then
+    source ~/git-completion.bash
 fi
 
 COLOR_SKYBLUE="\[\033[36m\]"
