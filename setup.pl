@@ -54,6 +54,7 @@ sub copy_dotfiles
     exec_cmd("cp $file_root/.bash_profile $home");
     exec_cmd("cp $file_root/.bashrc $home");
     exec_cmd("cp $file_root/.profile $home");
+    exec_cmd("cp $file_root/.tmux.conf $home");
     exec_cmd("cp $file_root/.vimrc $home");
     exec_cmd("cp $file_root/.vimrc.NeoBundle $home");
     exec_cmd("cp -r $file_root/.vim $home");

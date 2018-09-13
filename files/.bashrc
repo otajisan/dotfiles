@@ -31,7 +31,8 @@ GIT_PS1_SHOWUPSTREAM=auto
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home"
+#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home"
 
 # anyenv
 if [ -d ${HOME}/.anyenv ] ; then
@@ -43,3 +44,14 @@ if [ -d ${HOME}/.anyenv ] ; then
         export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
     done
 fi
+
+DANGER_GITHUB_API_TOKEN=849f5c73330f6734f4b6a1ea71ad11417d8ca62d
+
+# Go
+export GO_VERSION=1.8
+export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
+export GOPATH=$HOME/dev
+export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
+export PATH=$GOROOT/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+echo Now using golang v$GO_VERSION

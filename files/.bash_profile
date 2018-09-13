@@ -10,3 +10,9 @@ PATH=/usr/local/git/bin:$PATH
 export PATH
 
 export LSCOLORS=Fxfxcxdxbxegedabagacad
+
+# tmux
+if [ $SHLVL = 1 ]; then
+  tmux
+  tmux source ~/.tmux.conf
+fi
