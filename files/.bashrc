@@ -48,7 +48,7 @@ fi
 DANGER_GITHUB_API_TOKEN=849f5c73330f6734f4b6a1ea71ad11417d8ca62d
 
 # Go
-export GO_VERSION=1.8
+export GO_VERSION=1.8,7
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/go
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
