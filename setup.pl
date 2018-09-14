@@ -57,6 +57,7 @@ sub copy_dotfiles
     exec_cmd("cp $file_root/.tmux.conf $home");
     exec_cmd("cp $file_root/.vimrc $home");
     exec_cmd("cp $file_root/.vimrc.NeoBundle $home");
+    exec_cmd("cp $file_root/.vimrc.dein $home");
     exec_cmd("cp -r $file_root/.vim $home");
 }
 
@@ -102,6 +103,28 @@ sub install_NeoBundle
     info("now installing NeoBundle");
     exec_cmd("mkdir -p $home/.vim/bundle");
     exec_cmd("git clone git://github.com/Shougo/neobundle.vim $home/.vim/bundle/neobundle.vim");
+    # gitでコミット実行時、利用エディタをvimに設定
+    exec_cmd("git config --global core.editor \"vim\"");
+    return 1;
+}
+
+#
+# vimのdeinプラグインをインストールする
+#
+sub install_NeoBundle
+{
+    my ($home) = shift;
+
+    info(">>>> start install dein");
+
+    if (-d "$home/.vim/dein") {
+        info("dein is already installed.");
+        return 0;
+    }
+
+    info("now installing dein");
+    exec_cmd("mkdir -p $home/.vim/dein");
+    exec_cmd("git clone git://github.com/Shougo/dein.vim $home/.vim/dein/dein.vim");
     # gitでコミット実行時、利用エディタをvimに設定
     exec_cmd("git config --global core.editor \"vim\"");
     return 1;

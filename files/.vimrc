@@ -7,6 +7,11 @@ if filereadable(expand('~/.vimrc.NeoBundle'))
     source ~/.vimrc.NeoBundle
 endif
 
+"dein用の設定を読み込み
+if filereadable(expand('~/.vimrc.dein'))
+    source ~/.vimrc.dein
+endif
+
 "Tabをスペース4つに展開＆Tabの設定
 set tabstop=4
 set autoindent
