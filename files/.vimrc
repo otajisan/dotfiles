@@ -3,9 +3,9 @@ colorscheme molokai
 set t_Co=256
 
 "NeoBundle用の設定を読み込み
-if filereadable(expand('~/.vimrc.NeoBundle'))
-    source ~/.vimrc.NeoBundle
-endif
+"if filereadable(expand('~/.vimrc.NeoBundle'))
+"    source ~/.vimrc.NeoBundle
+"endif
 
 "dein用の設定を読み込み
 if filereadable(expand('~/.vimrc.dein'))
